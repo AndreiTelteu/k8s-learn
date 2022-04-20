@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argo-events-webhook-ingress
+  namespace: argo-events
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - argo-events.youtubegaming.live
+    secretName: argo-events-tls
+  rules:
+    - host: argo-events.youtubegaming.live
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: webhook-eventsource
+                port:
+                  number: 12000

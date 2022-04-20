@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rancher-web
+  namespace: cattle-system
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - rancher.r.vreau.eu
+    secretName: hello-kubernetes-tls
+  rules:
+    - host: rancher.r.vreau.eu
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: rancher
+                port:
+                  number: 80
