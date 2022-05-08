@@ -24,7 +24,7 @@ kubectl -n youtubegaminglive \
 
 ### build docker images and push to github with kaniko
 ```
-kubectl -n youtubegaminglive \
+kubectl -n argo-events \
   create secret \
   docker-registry regcred \
   --docker-server=ghcr.io \
@@ -36,6 +36,16 @@ kubectl -n youtubegaminglive \
 ### example build config:
 ```
 ./build-soketi.yml
+```
+
+### build docker images and push to github with kaniko
+```
+kubectl -n argo-events \
+  create secret \
+  generic github-token \
+  --from-literal token="secret-token" \
+  --from-literal email="secret-email" \
+  --from-literal user="secret-name" \
 ```
 
 ### install argo workflows https://github.com/argoproj/argo-workflows/releases/tag/v3.3.1
