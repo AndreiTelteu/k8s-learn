@@ -2,7 +2,7 @@
 
 ### install kubeseal on cluster
 ```
-kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.17.4/controller.yaml
+kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.18.0/controller.yaml
 ```
 
 ### install kubeseal cli
