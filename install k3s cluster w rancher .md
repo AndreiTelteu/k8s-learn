@@ -43,6 +43,14 @@ curl -sfL https://get.k3s.io | K3S_NODE_NAME=ytc-node-2 K3S_URL=https://<master-
   --kubelet-arg node-status-update-frequency=5s
 ```
 
+### install k3s update agent
+
+```
+kubectl apply -f https://github.com/rancher/system-upgrade-controller/releases/latest/download/system-upgrade-controller.yaml
+```
+Then copy plans: https://docs.k3s.io/upgrades/automated#configure-plans
+<br>`kubectl -n system-upgrade apply -f upgrade-plans.yml`
+
 ### install cert-manager https://cert-manager.io/docs/installation/helm/
 ```
 helm install \
