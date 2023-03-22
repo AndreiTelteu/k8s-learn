@@ -21,7 +21,6 @@ ufw allow 2379:2380/tcp
 ```
 curl -sfL https://get.k3s.io | sh -s - \
   --node-name ytc-master-1 \
-  --no-deploy traefik \
   --write-kubeconfig-mode 644 \
   --kubelet-arg node-status-update-frequency=5s \
   --kube-controller-arg node-monitor-period=2s \
